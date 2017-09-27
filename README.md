@@ -3,7 +3,7 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
 
 ### 사용한 API
 
-Service API는 매개변수인 Callback 함수를 통해 요청 결과를 수신합니다.
+Service API는 Callback을 통해 요청 결과를 수신합니다.
 
  1. `init`으로 API를 초기화
 
@@ -90,6 +90,8 @@ Service API는 매개변수인 Callback 함수를 통해 요청 결과를 수신
 		  });
         };
 
+	  * Callback으로 웹 서비스 종료 이벤트를 수신합니다.
+	  * 종료 처리를 할 경우 `gigagenie.voice.svcFinished`를 호출해야 합니다.
 
  5. `media.onMuteRequest`으로 Mute 요청 이벤트 수신
 
@@ -97,3 +99,7 @@ Service API는 매개변수인 Callback 함수를 통해 요청 결과를 수신
           if(extra) console.log("Mute!");
           else console.log("unMute!");
 		};
+
+	  * Callback으로 Mute 요청 이벤트를 수신합니다.
+	     * extra: 오디오 on/off 값 (boolean)
+
