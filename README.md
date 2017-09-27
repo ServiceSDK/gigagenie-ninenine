@@ -3,6 +3,8 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
 
 ### 사용한 API
 
+Service API는 매개변수인 Callback 함수를 통해 요청 결과를 수신합니다.
+
  1. `init`으로 API를 초기화
 
 
@@ -20,12 +22,12 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
           });
          }
 
-   * Service SDK 이용을 위해 반드시 초기화를 진행해야 합니다.
-   * options은 다음과 같이 설정합니다.
-     * options.apikey: 개발자 사이트에서 받은 api key
-     * options.keytype: G-Box 상용키 GBOXCOMM (string)
-   * callback으로 초기화 성공 여부를 수신
-     * result_cd: 200(success)이 아닌 경우 API는 동작하지 않습니다.    
+	   * Service SDK 이용을 위해 반드시 초기화를 진행해야 합니다.
+	   * options은 다음과 같이 설정합니다.
+	     * options.apikey: 개발자 사이트에서 받은 api key
+	     * options.keytype: G-Box 상용키 GBOXCOMM (string)
+	   * callback으로 초기화 성공 여부를 수신
+	     * result_cd: 200(success)이 아닌 경우 API는 동작하지 않습니다.    
 
 
 
@@ -51,11 +53,11 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
           });
         };
 
-  * options은 다음과 같이 설정합니다.
-     * options.voicemsg: 음성인식 요청 텍스트 (string), TTS 후 요청 수행
-  * callback으로 음성인식 요청에 대한 결과를 수신합니다.
-     * result_cd가 200(success)인 경우 다음의 값이 전달됩니다.
-     * extra.voicetext: 음성인식 결과 텍스트 (string)
+	  * options은 다음과 같이 설정합니다.
+	     * options.voicemsg: 음성인식 요청 텍스트 (string), TTS 후 요청 수행
+	  * callback으로 음성인식 요청에 대한 결과를 수신합니다.
+	     * result_cd가 200(success)인 경우 다음의 값이 전달됩니다.
+	     * extra.voicetext: 음성인식 결과 텍스트 (string)
 
 
 
@@ -63,8 +65,7 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
 
         function stopTTS() {
           alert("음성인식 중단 요청");
-          var options={};
-          gigagenie.voice.stopTTS(options,function(result_cd, result_msg, extra) {
+          gigagenie.voice.stopTTS(null,function(result_cd, result_msg, extra) {
             if (result_cd==200) {
               alert("음성인식 중단 성공");
             }
@@ -77,17 +78,15 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
           });
         }
 
-  * options은 null입니다.
-  * callback으로 음성인식 중단 요청에 대한 결과를 수신합니다.
+	  * options은 null입니다.
+	  * callback으로 음성인식 중단 요청에 대한 결과를 수신합니다.
 
 
 
  4. `voice.onRequestClose`으로 서비스 종료 수신
 
         gigagenie.voice.onRequestClose=function(){
-		  options={};
-		  gigagenie.voice.svcFinished(options,function(result_cd,result_msg,extra){
-
+		  gigagenie.voice.svcFinished(null,function(result_cd,result_msg,extra){
 		  });
         };
 
@@ -98,4 +97,3 @@ GiGA Genie 서비스 SDK를 이용한 구구단 게임입니다.
           if(extra) console.log("Mute!");
           else console.log("unMute!");
 		};
-
