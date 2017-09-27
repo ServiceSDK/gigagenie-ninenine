@@ -30,7 +30,6 @@ Service API는 Callback을 통해 요청 결과를 수신합니다.
 	     * result_cd: 200(success)이 아닌 경우 API는 동작하지 않습니다.    
 
 
-<br />
  2. `voice.getVoiceText`으로 음성인식을 요청
 
         function startNineNine(){
@@ -60,7 +59,6 @@ Service API는 Callback을 통해 요청 결과를 수신합니다.
 	     * extra.voicetext: 음성인식 결과 텍스트 (string)
 
 
-<br />
  3. `voice.stopTTS`으로 음성인식을 중단
 
         function stopTTS() {
@@ -82,7 +80,6 @@ Service API는 Callback을 통해 요청 결과를 수신합니다.
 	  * callback으로 음성인식 중단 요청에 대한 결과를 수신합니다.
 
 
-<br />
  4. `voice.onRequestClose`으로 서비스 종료 수신
 
         gigagenie.voice.onRequestClose=function(){
@@ -93,7 +90,7 @@ Service API는 Callback을 통해 요청 결과를 수신합니다.
 	  * Callback으로 웹 서비스 종료 이벤트를 수신합니다.
 	  * 종료 처리를 할 경우 `gigagenie.voice.svcFinished`를 호출해야 합니다.
 
-<br />
+
  5. `media.onMuteRequest`으로 Mute 요청 이벤트 수신
 
         gigagenie.media.onMuteRequest=function(extra){
